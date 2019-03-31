@@ -1,0 +1,23 @@
+link dos videos do curso: https://www.youtube.com/playlist?list=PLf-O3X2-mxDkiUH0r_BadgtELJ_qyrFJ_
+
+videos assistidos:
+
+introdução;
+
+00;
+
+01;
+
+02;
+
+03;
+
+04
+
+os namespaces fornecem os isolamentos necessários aos
+containers e o cgroups, os recursos de hardware.
+
+netfilter é um módulo do iptables;
+
+05
+
