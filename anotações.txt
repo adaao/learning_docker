@@ -1,5 +1,13 @@
 link dos videos do curso: https://www.youtube.com/playlist?list=PLf-O3X2-mxDkiUH0r_BadgtELJ_qyrFJ_
 
+* Os comando devem ser executados em um terminal root
+
+os namespaces fornecem os isolamentos necessários aos
+containers e o cgroups, os recursos de hardware.
+
+netfilter é um módulo do iptables;
+
+
 videos assistidos:
 
 introdução;
@@ -18,12 +26,50 @@ introdução;
 
 06;
 
+docker run hello-world
+   roda o hello world
+
+docker ps
+   mostra os containers
+
+docker ps -a  
+   mostra todos os containers que já foram criados
+
+docker run -ti "nome_da_imagem" /bin/bash
+   -ti disponibiliza um terminal interativo, com a opção -d roda em background
+   /bin/bash é o terminal que será usado
+
+para terminar e sair do container:
+   ctrl + d
+ 
+para sair do container sem terminá-lo:
+   ctrl + p + q
+   
+docker attach "id_do_container" entra no container.
+
+criar container sem ininiá-lo:
+   docker create "nome_da_imagem"
+
+iniciar ou para container
+   docker start/stop/pause/unpause "id_do_container"
+
+mostrar status do container
+   docker stats "id_do_container"
+
+mostrar id dos processos do container
+   docker top "id_do_container"
+
+informações do container
+   docker log "id_do_container"
+
+remover container
+   docker rm "id do container"
+   se o container estiver rodando será preciso forçar a parada com o parâmetro "-f"
 
 
-os namespaces fornecem os isolamentos necessários aos
-containers e o cgroups, os recursos de hardware.
 
-netfilter é um módulo do iptables;
 
-05
+
+
+
 
