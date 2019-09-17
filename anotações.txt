@@ -12,7 +12,13 @@ introdução;
 
 03;
 
-04
+04;
+
+05;
+
+06;
+
+
 
 os namespaces fornecem os isolamentos necessários aos
 containers e o cgroups, os recursos de hardware.
