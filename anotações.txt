@@ -66,6 +66,37 @@ remover container
    docker rm "id do container"
    se o container estiver rodando será preciso forçar a parada com o parâmetro "-f"
 
+07;
+
+nomear o container
+	--name
+	exemplo:
+		docker run -ti --name teste debian
+
+verificar a memória do container
+	docker inspect id_do_container | grep -i mem
+
+limitar memoria
+	docker run -ti --memory 512m --name novo_teste debian
+
+alterar container
+	docker update
+		exemplo: docker update -m 256m nome_do_container
+		também funciona para --cpu-shares
+
+limitar cpu
+	--cpu-shares
+		exemplo: docker run -ti --cpu-shares 1024 --name container1 debian
+
+	para definição de proporção, deve-se basear no numero passado.
+	"Hoje já tem a opção --cpus, onde vc determina um percentual do CPU. Por ex, --cpus 0.50, estou dizendo 		para limitar em meio core. --cpus 2, seria pra dois cores e por ae vai."
+
+
+
+
+
+
+
 
 
 
