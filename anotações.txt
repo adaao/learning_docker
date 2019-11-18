@@ -91,6 +91,47 @@ limitar cpu
 	para definição de proporção, deve-se basear no numero passado.
 	"Hoje já tem a opção --cpus, onde vc determina um percentual do CPU. Por ex, --cpus 0.50, estou dizendo 		para limitar em meio core. --cpus 2, seria pra dois cores e por ae vai."
 
+08;
+
+criar e montar volume
+   -v "diretorio"
+		exemplo: docker run -ti --name volume -v /nome/do/volume ubuntu /bin/bash
+
+mostrar volume criado no container
+   docker inspect -f {{.Mounts}} "nome do container"
+
+subir container escolhendo o diretorio montado
+	docker run -ti -v /caminho/do/diretorio/a/ser/montado:/nome_do_compartilhamento
+
+comando usado para criar container a ter espaço compartilhado
+	docker create -v /data --name dbdados centos
+
+comando usado para criar container postgresql durante a aula:
+	docker run -d -p 5432:5432 --name pgsql1 --volumes-from dbdados -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
+
+o parâmetro -p expões a porta do container, -e passa valores para variável de ambiente do container, --volume-from monta um diretório compartilhado por outro container.
+
+
+09;
+
+Dockerfile
+
+A primeira linha do Dockerfile deve ser o comando FROM que é usado para definir qual 
+imagem será usada como base para o container. Ex.:
+
+FROM debian
+
+O comando RUN serve para executar comandos. Cada "RUN" cria uma camada de forma que não é 
+interessante ter vários RUN no docker file. O melhor cenário é a concatenação de vários comandos 
+em um RUN. Ex.:
+
+RUN apt-get update && apt-get install apache2 && apt-get clean
+
+
+ENTRYPOINT recebe por parâmetro qual deve ser o principal processo do container.
+Se algo acontecer com esse processo, o container "morre". Caso seja usado, o CMD se torna apenas um parâmetro 
+para o binário citado no ENTRYPOINT. 
+
 
 
 
