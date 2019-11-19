@@ -132,6 +132,21 @@ ENTRYPOINT recebe por parâmetro qual deve ser o principal processo do container
 Se algo acontecer com esse processo, o container "morre". Caso seja usado, o CMD se torna apenas um parâmetro 
 para o binário citado no ENTRYPOINT. 
 
+10;
+
+build
+
+Para construir uma imagem a partir de um Dockerfile
+	docker build -t nome_escolhido_para_a_imagem:numero_da_versão
+
+exemplo:
+	docker build -t haskell_container:1.0 .
+
+O ponto no final aponta para o diretorio atual. Não se aponta para o arquivo Dockerfile,
+se aponta para o diretorio onde ele está.
+
+
+
 
 
 
