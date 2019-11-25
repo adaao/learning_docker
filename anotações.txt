@@ -1,6 +1,7 @@
 link dos videos do curso: https://www.youtube.com/playlist?list=PLf-O3X2-mxDkiUH0r_BadgtELJ_qyrFJ_
 
-* Os comando devem ser executados em um terminal root
+* Os comando devem ser executados em um terminal root ou você deve adicionar o seu
+* usuário ao grupo do docker.
 
 os namespaces fornecem os isolamentos necessários aos
 containers e o cgroups, os recursos de hardware.
@@ -144,6 +145,8 @@ exemplo:
 
 O ponto no final aponta para o diretorio atual. Não se aponta para o arquivo Dockerfile,
 se aponta para o diretorio onde ele está.
+
+11;
 
 
 
