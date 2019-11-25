@@ -148,6 +148,30 @@ se aponta para o diretorio onde ele está.
 
 11;
 
+docker build -t webs:1.0 .
+
+docker run -d --rm --name webs -p 1234:80 webs:1.0
+
+
+12;
+
+docker hub
+
+Antes de qualquer coisa é preciso logar no docker hub ou no hub que você usa...
+
+	docker login     ou     docker login link_do_seu_hub
+
+Para subir a imagem para o docker hub é preciso colocar o nome do usuário
+na imagem. No caso de a imagem já existir bastar usar o comando 'tag' deguindo o formato
+'docker tag id_da_sua_imagem seu_usuário_no_dockehub/sua_imagem:número_da_versão', exemplo:
+	
+	docker tag dfd621844998 container_creator/apache2_webserver:1.0
+
+para subir a imagem para o docker hub:
+	
+	docker push usuari/imagem:versão
+
+*é preciso estar logado
 
 
 
