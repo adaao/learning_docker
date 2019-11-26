@@ -173,6 +173,42 @@ para subir a imagem para o docker hub:
 
 *é preciso estar logado
 
+13;
+
+Criando nosso registry...
+
+	docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+-d -> Roda em background
+
+-p -> Mapeia a porta. A porta do resgistry é 5000
+
+--restart=always -> Se der algum problema no containner ele reinicia
+
+--name registry -> Nome escolhido para a imagem. Poderia ser qualquer coisa.
+
+registry:2 -> Imagem escolhida. Neste caso, versão 2 da Registry.
+
+
+Push para o nosso registry...
+
+Antes de fazer o push é preciso "taguear" a imagem à ser "empurrada" para o registry seguindo
+o formato que fora usado para o docker hub, mas ao invés de usar seu nome/nome_da_imagem usaremos
+o ip ou dns ou o que for aplicável, dois pontos porta, barra nome da imagem:
+
+	docker tag dfd621844998 localhost:5000/webs:1.0
+
+Depois disso basta usar o push...
+
+	docker push localhost:5000/webs:1.0
+
+Para fazer o caminho inverso basta usar o "pull" no lugar do push.
+
+Quer visualizar as imagens do seu registry?
+
+	curl localhost:5000/v2/_catalog
+
+.
 
 
 
