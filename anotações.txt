@@ -208,8 +208,65 @@ Quer visualizar as imagens do seu registry?
 
 	curl localhost:5000/v2/_catalog
 
-.
+14;
 
+Opções de rede...
+
+--dns -> Passa um servidor de dns para o container
+	docker run -ti --dns 8.8.8.8 debian
+
+--hostname -> define um hostname para o container
+	docker run -ti --hostname foo debian
+
+--link -> "Linka" um container a outro. Por exemplo, criemos um container qualquer...
+
+	docker run -ti --name container1 debian
+   
+   Saia do container sem matá-lo
+
+	ctrl + p + q
+  
+   Agora criemos outro container que será "linkado" ao primeiro...
+
+	docker run -ti --link container1 --name container2 --hostname container2 debian  
+
+   Já no terminal do container2 dê um ping no container1
+
+	ping container1
+
+   Você verá que ele será encontrado, que está sendo enxergado pelo container2.
+
+--expose -> Expõe a porta do container desejada.
+
+	docker run -d --expose 80 webserver:1.0
+
+--publish -p -> Realiza o bind entre portas, em outras palavras, faz o redirecionamento. 
+
+	docker run -d --rm --publish 8080:80 webserver:1.0
+
+			ou
+
+	docker run -d -p 8080:80 webserver:1.0
+
+--mac-address -> Define um mac address para o container
+
+	docker run -d --mac-address 12:34:56:78:90:ab
+
+--net -> Usado para definir o stack de rede do conatainer. Ao criar um container, o container é iniciado
+   em modo bridge. Com o parâmetro --net podemos alterar isso. Por exemplo o comando
+
+	docker run -ti --net=host debian
+
+   define que nosso container debian use o stack de rede do nosso host. 
+   Se tivessemos o apache instalado neste container teríamos que usar as informações 
+   de rede do nosso host para acessá-lo.
+
+   *NÃO É RECOMENDADO ESTE TIPO DE USO, mas pode ser usado para "quebrar um galho" 
+   para algum serviço de rede que pode ser encontrado em sua rede local, por exemplo.
+   - Use com moderação.
+
+.
+   
 
 
 
