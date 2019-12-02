@@ -265,6 +265,24 @@ Opções de rede...
    para algum serviço de rede que pode ser encontrado em sua rede local, por exemplo.
    - Use com moderação.
 
+15;
+
+Host Docker
+
+Link dos releases: https://github.com/docker/machine/releases/
+
+No caso do linux, será preciso instalar o virtual box
+
+	# apt-get update && apt-get install virtualbox -y
+
+Para criar o host será usado o comando 'create' do docker machine e através do parâmetro --driver
+passaremos a tecnologia de virtualização. Poderia ser AWS, Google e afins, mas neste momento 
+usaremos o virtual box.
+
+	docker-machine create --driver virtualbox meuprimeirodockerhost
+
+Para mais detalhes consulte a documentação: https://docs.docker.com/machine/get-started/
+
 .
    
 
