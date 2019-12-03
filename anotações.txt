@@ -283,8 +283,48 @@ usaremos o virtual box.
 
 Para mais detalhes consulte a documentação: https://docs.docker.com/machine/get-started/
 
-.
-   
+16;
+
+Conectando ao host docker
+
+Podemos obter as informações de conexão do host com o comando
+	
+	docker-machine env nome_do_hostdocker
+
+Para conectarmos usaremos o comando eval que deve aparecer no final das 
+informações obtidas com o comando anterior
+
+	eval $(docker-machine env nome_do_hostdocker)
+
+Após este comando estaremos conectado ao host docker. Podemos verificar se estamos no 
+host com o comando 
+
+	docker ps -a
+
+Como acabamos de criar o host, não deve aparecer nenhum container.
+
+Podemos testar o funcionamento do host com a criação de um container simples
+
+	docker run --name teste busybox echo "Você está no host docker"
+
+Com o parâmetro 'ip' podemos verificaro ip do host, que pode ser usado para se conectar
+ por ssh por exemplo, mas a melhor abordagem é através do comando 'ssh':
+
+	docker-machine ssh nome_do_hostdocker
+
+Podemos usar o comando inspect para visualisar informações do host
+
+	docker-machine inspect nome_do_host
+
+Os comando start, stop e rm funcionam da mesma forma que nós já vimos
+
+	docker-machine stop nome_do_host
+
+	docker-machine start nome_do_host
+
+	docker-machine rm nome_do_host 
+
+.   
 
 
 
