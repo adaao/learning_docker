@@ -437,8 +437,18 @@ volumes_from:
  - service_name
  - service_name:ro
 
-.   
+18;
 
+Docker compose, continuação
+
+O docker compose usa comando parecidos com o que foi visto até agora (start, stop, ps, etc.). O destaque fica
+para o comando 'scale' que permite escalar o número de containers. Por exemplo:
+
+	docker-compose scale db=2
+
+Que escala para 2 o número de containers 'db' que temos.
+
+.
 
 
 
