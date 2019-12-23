@@ -398,7 +398,7 @@ links:
 
 
 #log_driver = Indica o formato do log a ser gerado, por ex: syslog, json-file, etc
-log_driver: syslog
+	log_driver: syslog
 #ou
 logging:
  driver:syslog
@@ -441,14 +441,32 @@ volumes_from:
 
 Docker compose, continuação
 
-O docker compose usa comando parecidos com o que foi visto até agora (start, stop, ps, etc.). O destaque fica
-para o comando 'scale' que permite escalar o número de containers. Por exemplo:
+O docker compose usa comandos parecidos com os que foram vistos até 
+agora (start, stop, ps, etc.). O destaque fica para o comando 'scale' que 
+permite escalar o número de containers. Por exemplo:
 
 	docker-compose scale db=2
 
 Que escala para 2 o número de containers 'db' que temos.
 
-.
+19;
+
+20;
+
+21;
+
+Docker swarm, services, nodes.
+
+Ao executar o comando 
+
+	docker swarm init
+
+O terminal mostrará o comando para juntar um node ao swarm. Caso você tenha perdido
+esse comando, basta digitar 
+
+	docker swarm join-token worker
+
+que o comando será mostrado novamente.
 
 
 
@@ -461,3 +479,8 @@ Que escala para 2 o número de containers 'db' que temos.
 
 
 
+
+
+
+\n\n
+docker swarm join --token SWMTKN-1-1p88tygdp87i4rgmy42q2kl6h4feapby7fyr1h1hmkb13mwx74-a7ssp6ryyng4mdcjr7mpky0a9 192.168.15.11:2377
